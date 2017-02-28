@@ -1,10 +1,9 @@
 /**
- * @param {String} css
  * @param {AssetusList} AssetusList
  * @param {String} searchPrefix
  * @constructor
  */
-function AssetusCssReplacer(css, AssetusList, searchPrefix) {
+function AssetusCssReplacer(AssetusList, searchPrefix) {
 
   if (!(this instanceof AssetusCssReplacer)) return new AssetusCssReplacer(AssetusList, searchPrefix);
 

@@ -1,35 +1,14 @@
-$spr: "assets/images/auth/*.png";
+$vk: "assets/images/auth/vk.png";
+$twitter: "assets/images/auth/twitter.png";
 
-.icon {
-  display: inline-flex;
-  background-image: spritus-url($spr);
-  background-size: spritus-size($spr);
+.vk {
+  background-image: assetus-url($vk);
+  background-size: assetus-size($vk);
+  width: assetus-width($vk);
+  height: assetus-height($vk);
 }
-
-.icon-google {
-  background-position: spritus-position("assets/images/auth/*.png", "google.png");
-  height: spritus-height("assets/images/auth/*.png", "google.png");
-  width: spritus-width("assets/images/auth/*.png", "google");
-}
-
-.icon-vk {
-  background-position: spritus-position("assets/images/auth/*.png", "vk.png");
-  height: spritus-height("assets/images/auth/*.png", "vk.png");
-  width: spritus-width("assets/images/auth/*.png", "vk");
-}
-
-.icon-twitter {
-  spritus: phw("assets/images/auth/*.png", "twitter");
-}
-
-.icon {
-  background-image: spritus-url("assets/images/auth/*.png?padding=10&name=auth2");
-  display: inline;
-  spritus:each("assets/images/auth/*.png?padding=10&name=auth2");
-}
-
-@media screen and (max-width: 960px) {
-    .class {
-        background: red;
-    }
+.twitter {
+  background-image: assetus-inline($twitter);
+  width: assetus-width($twitter);
+  height: assetus-height($twitter);
 }

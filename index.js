@@ -171,7 +171,9 @@ Assetus.prototype._saveImagemin = function (file, path) {
 
 Assetus.prototype.runHandler = function (imgFile) {
 
-  this.imgFiles.push(imgFile);
+  if (imgFile) {
+    this.imgFiles.push(imgFile);
+  }
 
   if (!this.AssetusList.isComplete()) return;
 
@@ -183,8 +185,8 @@ Assetus.prototype.runHandler = function (imgFile) {
     decl = this.decls[i];
 
     if (decl.prop === self.config.searchPrefix) {
-      if (decl.value.indexOf('phw') !== -1) {
-        var props = replacer.phw(decl.value);
+      if (decl.value.indexOf('ihw') !== -1) {
+        var props = replacer.ihw(decl.value);
 
         if (props) {
           props.forEach(function (item) {
@@ -193,30 +195,6 @@ Assetus.prototype.runHandler = function (imgFile) {
         }
         decl.parent.removeChild(decl);
 
-      } else if(decl.value.indexOf('each') !== -1) {
-        var newRules = replacer.each(decl.value);
-
-        var root = decl.parent.root();
-
-        if (newRules) {
-          newRules.forEach(function (item) {
-            var r = postcss.rule({selector: decl.parent.selector + '-' + item.key});
-            r.source = decl.parent.source;
-            item.decls.forEach(function (d) {
-              r.append(d);
-            });
-
-            decl.parent.walkDecls(function (decl) {
-              if (decl.prop !== self.config.searchPrefix) {
-                r.append(decl.clone());
-              }
-            });
-
-            root.insertBefore(decl.parent, r);
-          })
-        }
-
-        root.removeChild(decl.parent);
       }
     } else {
       decl.value = replacer.asValue(decl.value);
@@ -248,7 +226,7 @@ Assetus.prototype.runHandler = function (imgFile) {
   this.resolve();
 };
 
-module.exports = postcss.plugin('postcss-spritus', function (options) {
+module.exports = postcss.plugin('postcss-assetus', function (options) {
 
   return function (css) {
 
