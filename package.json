@@ -1,6 +1,6 @@
 {
   "name": "postcss-assetus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Find the assets and then saves (or convert to inline) and compresses",
   "main": "index.js",
   "scripts": {
@@ -32,9 +32,7 @@
     "postcss": "^5.2.14",
     "imagemin": "^5.2.2",
     "imagemin-pngquant": "^5.0.0",
-    "pngquant-bin": "^3.1.1"
-  },
-  "devDependencies": {
+    "pngquant-bin": "^3.1.1",
     "file-type": "^4.1.0",
     "gulp-util": "^3.0.8",
     "image-size": "^0.5.1",
